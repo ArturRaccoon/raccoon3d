@@ -1,84 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Raccoon</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title> Love 🦝❤️</title>
+    <link rel="stylesheet" href="3dstyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Include the model-viewer library -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-    <style>
-        model-viewer {
-            width: 100%;
-            height: 70vh;
-            background-color: #f0f0f0;
-        }
-        .controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-    </style>
 </head>
-
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container">
-            <span class="navbar-brand">Animated Raccoon</span>
-        </div>
-    </nav>
-
-    <div class="container mt-4">
-        <model-viewer
-            id="raccoon-model"
-            src="raccoon.glb"
-            alt="Animated 3D Raccoon"
-            autoplay
-            camera-controls
-            shadow-intensity="1"
-            ar
-            environment-image="neutral"
-            auto-rotate
-            interaction-prompt="auto">
-            
-            <div class="controls btn-group">
-                <button class="btn btn-primary" onclick="playAnimation()">▶️ Play</button>
-                <button class="btn btn-warning" onclick="pauseAnimation()">⏸️ Pause</button>
-                <button class="btn btn-info" onclick="resetCamera()">🔁 Reset View</button>
+    <div class="hearts-background" id="heartsBackground"></div>
+    <div class="page-transition" id="pageTransition"></div>
+    
+    <div class="container">
+        <h1>У ПОШУКАХ КОХАННЯ 💖🦝</h1>
+        
+        <div class="love-meter">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
             </div>
-        </model-viewer>
+            <span class="click-count" id="clickCount">0</span>
+        </div>
+
+        <div class="romantic-message" id="romanticMessage">Клікай щоб знайти кохання...</div>
+
+        <div class="raccoon-container" id="raccoonContainer">
+            <div class="raccoon" id="raccoon"></div>
+            <div class="heart-burst"></div>
+        </div>
+
+        <div class="interactive-buttons">
+            <button class="romantic-button" onclick="showSpecialEffect('flowers')">🌹</button>
+            <button class="romantic-button" onclick="showSpecialEffect('kiss')">💋</button>
+        </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const model = document.getElementById('raccoon-model');
-            
-            // Auto-play after user interaction (helps with browser autoplay policies)
-            model.addEventListener('click', () => {
-                model.play({ repetitions: Infinity });
-            });
-        });
-
-        function playAnimation() {
-            const model = document.getElementById('raccoon-model');
-            model.animationPlaybackMode = 'auto';
-            model.play({ repetitions: Infinity });
-        }
-
-        function pauseAnimation() {
-            const model = document.getElementById('raccoon-model');
-            model.pause();
-        }
-
-        function resetCamera() {
-            const model = document.getElementById('raccoon-model');
-            model.cameraOrbit = '0deg 75deg 105%';
-            model.resetTurntableRotation();
-        }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <audio id="heartSound" src="heartbeat.mp3"></audio>
+    <script src="3dscript.js"></script>
 </body>
 </html>
