@@ -1,41 +1,84 @@
 <!DOCTYPE html>
-<html lang="it">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizza raccoon.glb</title>
-    <!-- Bootstrap CSS per uno stile responsive e moderno -->
+    <title>Animated Raccoon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Importa il componente model-viewer per il modello 3D -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <!-- GSAP (opzionale) per animazioni avanzate -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
-  </head>
-  <body>
-    <!-- Navbar con Bootstrap -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">3D Viewer</a>
-      </div>
+
+    <style>
+        model-viewer {
+            width: 100%;
+            height: 70vh;
+            background-color: #f0f0f0;
+        }
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <span class="navbar-brand">Animated Raccoon</span>
+        </div>
     </nav>
 
-    <div class="container my-4">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <model-viewer 
-            src="raccoon.glb" 
-            alt="Modello 3D di un procione" 
-            auto-rotate 
-            camera-controls 
+    <div class="container mt-4">
+        <model-viewer
+            id="raccoon-model"
+            src="raccoon.glb"
+            alt="Animated 3D Raccoon"
+            autoplay
+            camera-controls
             shadow-intensity="1"
+            ar
             environment-image="neutral"
-            style="width: 100%; height: 500px;">
-          </model-viewer>
-        </div>
-      </div>
+            auto-rotate
+            interaction-prompt="auto">
+            
+            <div class="controls btn-group">
+                <button class="btn btn-primary" onclick="playAnimation()">▶️ Play</button>
+                <button class="btn btn-warning" onclick="pauseAnimation()">⏸️ Pause</button>
+                <button class="btn btn-info" onclick="resetCamera()">🔁 Reset View</button>
+            </div>
+        </model-viewer>
     </div>
 
-    <!-- Bootstrap JS (opzionale per componenti interattivi) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const model = document.getElementById('raccoon-model');
+            
+            // Auto-play after user interaction (helps with browser autoplay policies)
+            model.addEventListener('click', () => {
+                model.play({ repetitions: Infinity });
+            });
+        });
+
+        function playAnimation() {
+            const model = document.getElementById('raccoon-model');
+            model.animationPlaybackMode = 'auto';
+            model.play({ repetitions: Infinity });
+        }
+
+        function pauseAnimation() {
+            const model = document.getElementById('raccoon-model');
+            model.pause();
+        }
+
+        function resetCamera() {
+            const model = document.getElementById('raccoon-model');
+            model.cameraOrbit = '0deg 75deg 105%';
+            model.resetTurntableRotation();
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+</body>
 </html>
