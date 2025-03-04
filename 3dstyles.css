@@ -1,0 +1,123 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #f88185, #ffb6a2, #ffa3e5);
+    font-family: 'Pacifico', cursive;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #590d22;
+    overflow: hidden;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Title Animation */
+h1 {
+    font-size: 3.5rem;
+    margin: 2rem 0;
+    text-shadow: 2px 2px #fff5f5;
+    animation: titleFloat 5s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Raccoon Container */
+.raccoon-container {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    transition: top 0.8s ease, left 0.8s ease;
+}
+
+/* Raccoon Element */
+.raccoon {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 15px rgba(89, 13, 34, 0.3));
+    transition: opacity 1s ease, transform 0.5s;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 250px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin: 1rem auto;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+    transition: width 0.5s ease;
+}
+
+.click-count {
+    font-size: 1.8rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* Buttons */
+.romantic-button {
+    background: rgba(0, 0, 0, 0.9);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.romantic-button:hover {
+    transform: scale(1.1);
+    background: #ff6b6b;
+    color: white;
+}
+
+/* Page Transition */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+    z-index: 999;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .raccoon-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+}
