@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Love 🦝❤️</title>
-    <link rel="stylesheet" href="3dstyles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Include the model-viewer library -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love 🦝❤️</title>
+  <link rel="stylesheet" href="3dstyles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Import the model-viewer library -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
-    <div class="hearts-background" id="heartsBackground"></div>
-    <div class="page-transition" id="pageTransition"></div>
+  <div class="hearts-background" id="heartsBackground"></div>
+  <div class="page-transition" id="pageTransition"></div>
+  
+  <div class="container">
+    <h1>У ПОШУКАХ КОХАННЯ 💖🦝</h1>
     
-    <div class="container">
-        <h1>У ПОШУКАХ КОХАННЯ 💖🦝</h1>
-        
-        <div class="love-meter">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <span class="click-count" id="clickCount">0</span>
-        </div>
-
-        <div class="romantic-message" id="romanticMessage">Клікай щоб знайти кохання...</div>
-
-        <div class="raccoon-container" id="raccoonContainer">
-            <div class="raccoon" id="raccoon"></div>
-            <div class="heart-burst"></div>
-        </div>
-
-        <div class="interactive-buttons">
-            <button class="romantic-button" onclick="showSpecialEffect('flowers')">🌹</button>
-            <button class="romantic-button" onclick="showSpecialEffect('kiss')">💋</button>
-        </div>
+    <div class="love-meter">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="click-count" id="clickCount">0</span>
     </div>
 
-    <audio id="heartSound" src="heartbeat.mp3"></audio>
-    <script src="3dscript.js"></script>
+    <div class="romantic-message" id="romanticMessage">Клікай щоб знайти кохання...</div>
+
+    <div class="raccoon-container" id="raccoonContainer">
+      <div class="raccoon" id="raccoon"></div>
+      <div class="heart-burst"></div>
+    </div>
+
+    <div class="interactive-buttons">
+      <button class="romantic-button" onclick="showSpecialEffect('flowers')">🌹</button>
+      <button class="romantic-button" onclick="showSpecialEffect('kiss')">💋</button>
+    </div>
+  </div>
+
+  <audio id="heartSound" src="heartbeat.mp3"></audio>
+  <script src="3dscript.js"></script>
 </body>
 </html>
