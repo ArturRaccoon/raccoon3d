@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizza raccoon.glb</title>
+    <!-- Bootstrap CSS per uno stile responsive e moderno -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Importa il componente model-viewer per il modello 3D -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- GSAP (opzionale) per animazioni avanzate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
+  </head>
+  <body>
+    <!-- Navbar con Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">3D Viewer</a>
+      </div>
+    </nav>
+
+    <div class="container my-4">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <model-viewer 
+            src="raccoon.glb" 
+            alt="Modello 3D di un procione" 
+            auto-rotate 
+            camera-controls 
+            shadow-intensity="1"
+            environment-image="neutral"
+            style="width: 100%; height: 500px;">
+          </model-viewer>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS (opzionale per componenti interattivi) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
