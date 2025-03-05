@@ -67,7 +67,7 @@ const pageBackgrounds = [
 ];
 
 let clickCount = 0;
-const maxClicks = 7;
+const maxClicks = 8;
 let currentPage;
 
 const pagesContainer = document.getElementById('pagesContainer');
@@ -168,12 +168,12 @@ function createPage(index) {
 // Aggiunge gli eventi di click al contenitore del raccoon
 function attachEvents(page) {
   const raccoonContainer = page.querySelector('.raccoon-container');
-  raccoonContainer.addEventListener('click', handleClick);
-  raccoonContainer.addEventListener('touchend', (e) => {
+  raccoonContainer.addEventListener('pointerdown', (e) => {
     e.preventDefault();
-    handleClick(e.changedTouches[0]);
+    handleClick(e);
   });
 }
+
 
 // Anima il raccoon con una trasformazione "epica"
 function animateRaccoon() {
