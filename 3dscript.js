@@ -127,12 +127,15 @@ function createPage(index) {
     raccoon.innerHTML = `
       <model-viewer 
         src="${currentState}" 
+        autoplay 
+        animation-name="dance" 
         auto-rotate 
         camera-controls 
         rotation-per-second="30deg"
         style="width:100%; height:100%;"
       ></model-viewer>
     `;
+  
     raccoon.style.backgroundImage = '';
   } else if (currentState.endsWith('.mp4')) {
     // Gestione dei file video
